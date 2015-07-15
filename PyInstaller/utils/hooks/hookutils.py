@@ -453,7 +453,7 @@ def qt5_qml_dir():
 def qt5_qml_data(dir):
     """Return Qml library dir formatted for data"""
     qmldir = qt5_qml_dir()
-    return (os.path.join(qmldir, dir), 'qml')
+    return (os.path.join(qmldir, dir), os.path.join('qml', dir))
 
 def qt5_qml_plugins_binaries(dir):
     """Return list of dynamic libraries formatted for mod.binaries."""
