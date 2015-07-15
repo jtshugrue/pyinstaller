@@ -421,7 +421,7 @@ def get_qmake_path(version = ''):
         try:
             qmake = os.path.join(dir, 'qmake')
             versionstring = subprocess.check_output([qmake, '-query', \
-                                                      'QT_VERSION']).strip()
+                                     'QT_VERSION']).strip().decode(encoding='UTF-8')
             if versionstring.find(version) == 0:
                 logger.debug('Found qmake version "%s" at "%s".' \
                              % (versionstring, qmake))
