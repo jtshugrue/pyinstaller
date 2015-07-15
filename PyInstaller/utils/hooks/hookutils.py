@@ -387,7 +387,11 @@ def get_homebrew_path(formula = ''):
         logger.debug('Detected homebrew not installed')
     except subprocess.CalledProcessError:
         logger.debug('homebrew formula "%s" not installed' % formula)
-    return str(path,'UTF-8') # subprocess returns BYTES not STR
+    
+    if path:
+        return str(path,'UTF-8') # subprocess returns BYTES not STR
+    else:
+        return path # Return None if we're on Windows (no Homebrew)
 
 def get_qmake_path(version = ''):
     '''
