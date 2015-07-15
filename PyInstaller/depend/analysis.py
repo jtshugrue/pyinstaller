@@ -397,7 +397,10 @@ class TOC(compat.UserList):
             # for different cases under Windows). We can't do that for
             # Python files because the import semantic (even at runtime)
             # depends on the case.
-            name = os.path.normcase(name)
+            
+            # Don't do this because it breaks copying case sensitive files for QtQuick
+            # name = os.path.normcase(name)
+            pass
         return (name, path, typecode)
 
     def append(self, entry):
